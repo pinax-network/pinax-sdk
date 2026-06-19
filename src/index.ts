@@ -68,6 +68,8 @@ export type PolymarketMarketsResponse = NonNullable<Awaited<ReturnType<InstanceT
 export type PolymarketUsersResponse = NonNullable<Awaited<ReturnType<InstanceType<typeof PinaxAPI>['polymarket']['getUsers']>>>;
 export type HyperliquidMarketsResponse = NonNullable<Awaited<ReturnType<InstanceType<typeof PinaxAPI>['hyperliquid']['getMarkets']>>>;
 export type HyperliquidUsersResponse = NonNullable<Awaited<ReturnType<InstanceType<typeof PinaxAPI>['hyperliquid']['getUsers']>>>;
+export type HyperliquidOutcomesResponse = NonNullable<Awaited<ReturnType<InstanceType<typeof PinaxAPI>['hyperliquid']['getOutcomes']>>>;
+export type HyperliquidOutcomeUsersResponse = NonNullable<Awaited<ReturnType<InstanceType<typeof PinaxAPI>['hyperliquid']['getOutcomeUsers']>>>;
 
 type GetQuery<P extends keyof paths> = paths[P] extends {
   get: {
@@ -1233,6 +1235,72 @@ class HyperliquidApi {
    */
   async getPlatform(params?: GetQuery<'/v1/hyperliquid/platform'>) {
     const { data, error } = await this.client.GET('/v1/hyperliquid/platform', {
+      params: { query: params ?? {} },
+    });
+
+    return handleResponse(data, error);
+  }
+
+  /**
+   * Get Hyperliquid HIP-4 outcome markets with metadata and 24h trading rollup
+   */
+  async getOutcomes(params?: GetQuery<'/v1/hyperliquid/outcomes'>) {
+    const { data, error } = await this.client.GET('/v1/hyperliquid/outcomes', {
+      params: { query: params ?? {} },
+    });
+
+    return handleResponse(data, error);
+  }
+
+  /**
+   * Get Hyperliquid outcome OHLCV candles
+   */
+  async getOutcomeOHLC(params?: GetQuery<'/v1/hyperliquid/outcomes/ohlc'>) {
+    const { data, error } = await this.client.GET('/v1/hyperliquid/outcomes/ohlc', {
+      params: { query: params ?? {} },
+    });
+
+    return handleResponse(data, error);
+  }
+
+  /**
+   * Get Hyperliquid outcome trade fills
+   */
+  async getOutcomeTrades(params?: GetQuery<'/v1/hyperliquid/outcomes/trades'>) {
+    const { data, error } = await this.client.GET('/v1/hyperliquid/outcomes/trades', {
+      params: { query: params ?? {} },
+    });
+
+    return handleResponse(data, error);
+  }
+
+  /**
+   * Get Hyperliquid outcome user trading aggregates
+   */
+  async getOutcomeUsers(params?: GetQuery<'/v1/hyperliquid/outcomes/users'>) {
+    const { data, error } = await this.client.GET('/v1/hyperliquid/outcomes/users', {
+      params: { query: params ?? {} },
+    });
+
+    return handleResponse(data, error);
+  }
+
+  /**
+   * Get Hyperliquid outcome user composition-event activity
+   */
+  async getOutcomeUserActivity(params?: GetQuery<'/v1/hyperliquid/outcomes/users/activity'>) {
+    const { data, error } = await this.client.GET('/v1/hyperliquid/outcomes/users/activity', {
+      params: { query: params ?? {} },
+    });
+
+    return handleResponse(data, error);
+  }
+
+  /**
+   * Get Hyperliquid outcome user open share positions
+   */
+  async getOutcomeUserPositions(params?: GetQuery<'/v1/hyperliquid/outcomes/users/positions'>) {
+    const { data, error } = await this.client.GET('/v1/hyperliquid/outcomes/users/positions', {
       params: { query: params ?? {} },
     });
 

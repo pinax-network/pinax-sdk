@@ -33,7 +33,7 @@ export interface paths {
         };
         /**
          * Token Balances
-         * @description Returns SPL token balances for Solana token owners with mint and program data.
+         * @description Returns SPL token balances for a token owner, including mint and program metadata.
          */
         get: operations["getV1SvmBalances"];
         put?: never;
@@ -53,7 +53,7 @@ export interface paths {
         };
         /**
          * Token Holders
-         * @description Returns top token holders ranked by balance.
+         * @description Returns the top holders of an SPL token, ranked by balance.
          */
         get: operations["getV1SvmHolders"];
         put?: never;
@@ -72,8 +72,8 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * Account Owner Lookup
-         * @description Returns owner address of an associated token account (ATA) with closure status.
+         * ATA Owner Lookup
+         * @description Returns the owner of an Associated Token Account (ATA), including closure status.
          */
         get: operations["getV1SvmOwner"];
         put?: never;
@@ -93,7 +93,7 @@ export interface paths {
         };
         /**
          * Token Metadata
-         * @description Provides SVM token contract metadata.
+         * @description Returns SPL token metadata including supply, mint authority, and holder count.
          */
         get: operations["getV1SvmTokens"];
         put?: never;
@@ -113,7 +113,7 @@ export interface paths {
         };
         /**
          * Native Transfers
-         * @description Returns Native transfers with transaction and block data.
+         * @description Returns native SOL transfers with transaction and block data.
          */
         get: operations["getV1SvmTransfersNative"];
         put?: never;
@@ -133,7 +133,7 @@ export interface paths {
         };
         /**
          * Native Balances
-         * @description Returns SOL native balances for wallet addresses.
+         * @description Returns native SOL balances for a wallet address.
          */
         get: operations["getV1SvmBalancesNative"];
         put?: never;
@@ -153,7 +153,7 @@ export interface paths {
         };
         /**
          * Native Holders
-         * @description Returns top token holders ranked by Native balance.
+         * @description Returns the top holders of native SOL, ranked by balance.
          */
         get: operations["getV1SvmHoldersNative"];
         put?: never;
@@ -173,7 +173,7 @@ export interface paths {
         };
         /**
          * Native Metadata
-         * @description Returns Native metadata including supply and holder count.
+         * @description Returns native SOL metadata including supply and holder count.
          */
         get: operations["getV1SvmTokensNative"];
         put?: never;
@@ -193,7 +193,7 @@ export interface paths {
         };
         /**
          * Swap Events
-         * @description Returns AMM swap events from Solana DEXs with input/output tokens and amounts.
+         * @description Returns Solana DEX swap events with input and output tokens and amounts.
          */
         get: operations["getV1SvmSwaps"];
         put?: never;
@@ -213,7 +213,7 @@ export interface paths {
         };
         /**
          * Liquidity Pools
-         * @description Returns AMM pool information from Solana DEX protocols with transaction counts.
+         * @description Returns Solana DEX pool metadata including tokens, fees, protocol, and transaction counts.
          */
         get: operations["getV1SvmPools"];
         put?: never;
@@ -233,7 +233,9 @@ export interface paths {
         };
         /**
          * Pool OHLCV
-         * @description Provides pricing data in the Open/High/Low/Close/Volume (OHCLV) format for DEX pools.
+         * @description Returns OHLCV price candles for Solana DEX pools.
+         *
+         *     Historical depth is subject to plan restrictions.
          */
         get: operations["getV1SvmPoolsOhlc"];
         put?: never;
@@ -253,7 +255,7 @@ export interface paths {
         };
         /**
          * Supported DEXs
-         * @description Returns all supported Solana DEXs.
+         * @description Returns the catalog of supported Solana DEX protocols.
          */
         get: operations["getV1SvmDexes"];
         put?: never;
@@ -313,7 +315,7 @@ export interface paths {
         };
         /**
          * Token Holders
-         * @description Returns top token holders ranked by ERC-20 balance.
+         * @description Returns the top holders of an ERC-20 token, ranked by balance.
          */
         get: operations["getV1EvmHolders"];
         put?: never;
@@ -355,7 +357,7 @@ export interface paths {
          * Historical Token Balances
          * @description Returns wallet ERC-20 token balance changes over time in OHLCV format.
          *
-         *     OHLCV historical depth is subject to plan restrictions.
+         *     Historical depth is subject to plan restrictions.
          */
         get: operations["getV1EvmBalancesHistorical"];
         put?: never;
@@ -375,7 +377,7 @@ export interface paths {
         };
         /**
          * Native Transfers
-         * @description Returns Native transfers with transaction and block data.
+         * @description Returns native token transfers with transaction and block data.
          */
         get: operations["getV1EvmTransfersNative"];
         put?: never;
@@ -395,7 +397,7 @@ export interface paths {
         };
         /**
          * Native Balances
-         * @description Returns EVM native balances for wallet addresses.
+         * @description Returns native token balances for a wallet address.
          */
         get: operations["getV1EvmBalancesNative"];
         put?: never;
@@ -415,7 +417,7 @@ export interface paths {
         };
         /**
          * Native Holders
-         * @description Returns top token holders ranked by Native balance.
+         * @description Returns the top holders of the native token, ranked by balance.
          */
         get: operations["getV1EvmHoldersNative"];
         put?: never;
@@ -435,7 +437,7 @@ export interface paths {
         };
         /**
          * Native Metadata
-         * @description Returns Native metadata including supply and holder count.
+         * @description Returns native token metadata including supply and holder count.
          */
         get: operations["getV1EvmTokensNative"];
         put?: never;
@@ -455,9 +457,9 @@ export interface paths {
         };
         /**
          * Historical Native Balances
-         * @description Returns wallet Native balance changes over time in OHLCV format.
+         * @description Returns wallet native token balance changes over time in OHLCV format.
          *
-         *     OHLCV historical depth is subject to plan restrictions.
+         *     Historical depth is subject to plan restrictions.
          */
         get: operations["getV1EvmBalancesHistoricalNative"];
         put?: never;
@@ -477,7 +479,7 @@ export interface paths {
         };
         /**
          * Swap Events
-         * @description Returns DEX swaps events with input & output token amounts.
+         * @description Returns DEX swap events with input and output token amounts.
          */
         get: operations["getV1EvmSwaps"];
         put?: never;
@@ -497,7 +499,7 @@ export interface paths {
         };
         /**
          * Liquidity Pools
-         * @description Returns DEX pool metadata including tokens, fees and protocol.
+         * @description Returns DEX pool metadata including tokens, fees, and protocol.
          */
         get: operations["getV1EvmPools"];
         put?: never;
@@ -517,9 +519,9 @@ export interface paths {
         };
         /**
          * Pool OHLCV
-         * @description Returns OHLCV price data for liquidity pools.
+         * @description Returns OHLCV price candles for DEX liquidity pools.
          *
-         *     OHLCV historical depth is subject to plan restrictions.
+         *     Historical depth is subject to plan restrictions.
          */
         get: operations["getV1EvmPoolsOhlc"];
         put?: never;
@@ -539,7 +541,7 @@ export interface paths {
         };
         /**
          * Supported DEXs
-         * @description Returns all supported EVM DEXs.
+         * @description Returns the catalog of supported EVM DEX protocols.
          */
         get: operations["getV1EvmDexes"];
         put?: never;
@@ -558,8 +560,8 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * NFT Collection
-         * @description Returns NFT collection metadata, supply stats, owner count, and transfer history.
+         * NFT Collections
+         * @description Returns NFT collection metadata, supply, owner count, and transfer history.
          */
         get: operations["getV1EvmNftCollections"];
         put?: never;
@@ -579,7 +581,7 @@ export interface paths {
         };
         /**
          * NFT Holders
-         * @description Returns wallet addresses holding NFT collection tokens with quantity and percentage distribution.
+         * @description Returns wallet addresses holding NFTs from a collection, with quantity and distribution share.
          */
         get: operations["getV1EvmNftHolders"];
         put?: never;
@@ -618,8 +620,8 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * NFT Ownerships by Address
-         * @description Returns NFT tokens owned by a wallet address with metadata and ownership information.
+         * NFT Ownerships
+         * @description Returns NFTs owned by a wallet address, with metadata and ownership context.
          */
         get: operations["getV1EvmNftOwnerships"];
         put?: never;
@@ -699,7 +701,7 @@ export interface paths {
         };
         /**
          * Token Metadata
-         * @description Provides ERC-20 token contract metadata.
+         * @description Returns ERC-20 token metadata including supply and holder count.
          */
         get: operations["getV1TvmTokens"];
         put?: never;
@@ -719,7 +721,7 @@ export interface paths {
         };
         /**
          * Native Transfers
-         * @description Returns Native transfers with transaction and block data.
+         * @description Returns native token transfers with transaction and block data.
          */
         get: operations["getV1TvmTransfersNative"];
         put?: never;
@@ -739,7 +741,7 @@ export interface paths {
         };
         /**
          * Native Metadata
-         * @description Provides Native metadata.
+         * @description Returns native token metadata including supply and holder count.
          */
         get: operations["getV1TvmTokensNative"];
         put?: never;
@@ -759,9 +761,9 @@ export interface paths {
         };
         /**
          * Swap Events
-         * @description Returns DEX swaps events with input & output token amounts.
+         * @description Returns DEX swap events with input and output token amounts.
          *
-         *     Address semantics: `transaction_from` is the onchain transaction initiator and `user` is the normalized user-oriented swap address. `sender` and `recipient` remain available for legacy compatibility, but new integrations should prefer `user` and plan for `sender`/`recipient` deprecation in a future major release.
+         *     Address semantics: `transaction_from` is the on-chain transaction initiator and `user` is the normalized swap address. `sender` and `recipient` remain available for legacy compatibility; new integrations should prefer `user` and plan for `sender` and `recipient` deprecation in a future major release.
          */
         get: operations["getV1TvmSwaps"];
         put?: never;
@@ -781,7 +783,7 @@ export interface paths {
         };
         /**
          * Liquidity Pools
-         * @description Returns DEX pool metadata including tokens, fees and protocol.
+         * @description Returns DEX pool metadata including tokens, fees, and protocol.
          */
         get: operations["getV1TvmPools"];
         put?: never;
@@ -801,9 +803,9 @@ export interface paths {
         };
         /**
          * Pool OHLCV
-         * @description Returns OHLCV price data for liquidity pools.
+         * @description Returns OHLCV price candles for DEX liquidity pools.
          *
-         *     OHLCV historical depth is subject to plan restrictions.
+         *     Historical depth is subject to plan restrictions.
          */
         get: operations["getV1TvmPoolsOhlc"];
         put?: never;
@@ -823,7 +825,7 @@ export interface paths {
         };
         /**
          * Supported DEXs
-         * @description Returns all supported TVM DEXs.
+         * @description Returns the catalog of supported TVM DEX protocols.
          */
         get: operations["getV1TvmDexes"];
         put?: never;
@@ -843,13 +845,11 @@ export interface paths {
         };
         /**
          * Supported DEXs
-         * @description Returns the list of perpetuals DEXs and spot, each with 24h activity stats (volume, trade count, unique users, asset count). Hyperliquid hosts a core perpetuals venue (`dex=perps`) alongside builder-deployed perpetuals DEXs that each list their own asset universe — `xyz` (commodities and macro indices), `cash` (tokenized equities), `km`, and others.
+         * @description Returns the list of perpetuals DEXs and spot, each with 24h activity stats (volume, trade count, unique users, asset count). Hyperliquid hosts a core perpetuals venue (`dex=perps`) alongside builder-deployed perpetuals DEXs that each list their own asset universe: `xyz` (commodities and macro indices), `cash` (tokenized equities), `km`, and others.
          *
          *     Use this endpoint to discover valid `dex` filter values for venue-scoped queries on `/markets`, `/markets/activity`, `/markets/liquidations`, `/users`, and `/users/positions`.
          *
          *     For platform-wide totals across all DEXs over arbitrary intervals, use `/v1/hyperliquid/platform`.
-         *
-         *     **Public — no auth required.**
          */
         get: operations["getV1HyperliquidDexes"];
         put?: never;
@@ -871,7 +871,7 @@ export interface paths {
          * Market Lookup
          * @description Returns the latest snapshot per market: last trade price, 24h change versus the prior-day close, 24h volume (split by side), trade and unique-user counts, and the most recent open interest and funding rate observed at the last funding snapshot.
          *
-         *     Filters compose additively — pass `coin`, `dex`, `base_token`, and/or `quote_token` to narrow the scope. A mismatched combination (e.g. `coin=cash:TSLA&dex=xyz`) returns empty. Omit all for a full listing sorted by 24h volume.
+         *     Filters compose additively. Pass `coin`, `dex`, `base_token`, and/or `quote_token` to narrow the scope. A mismatched combination (e.g. `coin=cash:TSLA&dex=xyz`) returns empty. Omit all for a full listing sorted by 24h volume.
          *
          *     `base_token` and `quote_token` are discovery filters across spot and perp markets: `?base_token=HYPE` returns every market with HYPE on the base side. Use the `coin` from the result as the identifier on the rest of the `/v1/hyperliquid/*` endpoints.
          */
@@ -893,7 +893,7 @@ export interface paths {
         };
         /**
          * Market OHLCV
-         * @description Returns OHLCV candles for a single coin and interval, derived from regular trade fills. Volume is broken down both by side (`buy_volume`, `ask_volume`) and — on perpetuals — by directional intent (`open_long_volume`, `close_long_volume`, `open_short_volume`, `close_short_volume`) so consumers can distinguish whether price moves are driven by fresh exposure or position unwinds. On spot markets the directional-intent fields are zero; the side-volume fields carry the buy/sell breakdown directly.
+         * @description Returns OHLCV candles for a single coin and interval, derived from regular trade fills. Volume is split into taker-buy and taker-sell (`buy_volume`, `sell_volume`) for the directional flow. On perpetuals, the four directional-intent fields (`open_long_volume`, `close_long_volume`, `open_short_volume`, `close_short_volume`) further classify whether price moves are driven by fresh exposure or position unwinds. On spot markets the directional-intent fields are zero; the side-volume fields carry the buy/sell breakdown directly.
          *
          *     For liquidation-only candles (with mark-price OHLC), use `/v1/hyperliquid/markets/liquidations/ohlc`.
          */
@@ -917,7 +917,7 @@ export interface paths {
          * Market Open Interest
          * @description Returns the historical open-interest and funding-rate time series for a coin at the requested interval. `open_interest` is the sum of absolute signed position sizes across all users at each funding snapshot.
          *
-         *     Each row also exposes the directional positioning split (`long_size`, `short_size`, `net_position`, plus `long_positions` and `short_positions` as user counts) and funding aggregates (`funding_rate`, `total_funding`, `positive_funding`, `negative_funding`) — useful for detecting crowded sides, funding pressure, and position flushes.
+         *     Each row also exposes the directional positioning split (`long_size`, `short_size`, `net_position`, plus `long_positions` and `short_positions` as user counts) and funding aggregates (`funding_rate`, `total_funding`, `positive_funding`, `negative_funding`), useful for detecting crowded sides, funding pressure, and position flushes.
          */
         get: operations["getV1HyperliquidMarketsOi"];
         put?: never;
@@ -941,9 +941,9 @@ export interface paths {
          *
          *     For balance-changing events on a user (deposits, withdrawals, funding payments, vault flows), use `/v1/hyperliquid/users/activity`.
          *
-         *     At least one of `coin`, `dex`, or `user` is required. Filters compose additively — pass any combination to narrow further; a mismatched pair (e.g. `coin=cash:TSLA&dex=xyz`) returns empty.
+         *     At least one of `coin`, `dex`, or `user` is required. Filters compose additively; pass any combination to narrow further. A mismatched pair (e.g. `coin=cash:TSLA&dex=xyz`) returns empty.
          *
-         *     Defaults to the last 24 hours when no time range is specified — provide `start_time` and `end_time` to query older data.
+         *     Defaults to the last 24 hours when no time range is specified. Pass `start_time` and `end_time` to query older data.
          */
         get: operations["getV1HyperliquidMarketsActivity"];
         put?: never;
@@ -963,11 +963,11 @@ export interface paths {
         };
         /**
          * Market Liquidations
-         * @description Returns one row per liquidation event, aggregated across the multiple fills that walk the book during a liquidation. Only the liquidated user's side is returned — counterparty fills are excluded.
+         * @description Returns one row per liquidation event, aggregated across the multiple fills that walk the book during a liquidation. Only the liquidated user's side is returned; counterparty fills are excluded.
          *
          *     Each row surfaces the coin, liquidated user, transaction hash, liquidation kind (`CROSS_LONG`, `ISOLATED_SHORT`, and others), total size and notional, size-weighted average fill price, the mark price at liquidation, and the liquidation method reported by the venue (`backstop` and others).
          *
-         *     Filter by `coin`, `dex`, and/or `liquidated_user` — filters compose additively. Sort by `notional` (default — largest events first) or `time` (most recent first).
+         *     Filter by `coin`, `dex`, and/or `liquidated_user`. Filters compose additively. Sort by `notional` (default, largest events first) or `time` (most recent first).
          */
         get: operations["getV1HyperliquidMarketsLiquidations"];
         put?: never;
@@ -987,11 +987,182 @@ export interface paths {
         };
         /**
          * Market Liquidations OHLCV
-         * @description Returns liquidation-only OHLCV candles for a single coin and interval. Adds mark-price OHLC (`mark_price_open`, `mark_price_high`, `mark_price_low`, `mark_price_close`) — the price feed used for margining at liquidation time — alongside the standard trade-price OHLC. Volume and counts cover the liquidation fills only.
+         * @description Returns liquidation-only OHLCV candles for a single coin and interval. Adds mark-price OHLC (`mark_price_open`, `mark_price_high`, `mark_price_low`, `mark_price_close`), the price feed used for margining at liquidation time, alongside the standard trade-price OHLC. Volume and counts cover the liquidation fills only.
          *
          *     For all-fill candles, use `/v1/hyperliquid/markets/ohlc`.
          */
         get: operations["getV1HyperliquidMarketsLiquidationsOhlc"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/hyperliquid/outcomes": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Outcomes Lookup
+         * @description Returns HIP-4 outcome markets with metadata and 24h trading rollup. Each outcome trades as two side coins (Yes/No or custom labels) under one collateralized market.
+         *
+         *     Filter with `outcome_id` for direct lookup, `question_id` to walk a multi-outcome question, or `status` to scope to live or settled outcomes. `question.question_id IS NULL` indicates a binary single-outcome market (no parent question grouping in HL `outcomeMeta`).
+         *
+         *     The two side coins are exposed in `sides[]`; use them with `/v1/hyperliquid/outcomes/ohlc` (per-leg) and `/v1/hyperliquid/outcomes/trades` (per-leg fills). Trade-shaped endpoints like `/v1/hyperliquid/markets/*` reject outcome coins.
+         */
+        get: operations["getV1HyperliquidOutcomes"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/hyperliquid/outcomes/ohlc": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Outcome OHLCV
+         * @description Returns OHLCV candles for one or more outcome legs over the requested interval. Provide either `coin` (full Hyperliquid coin identifier, e.g. `#1730`) or `outcome_id` (UInt64); both accept CSV for batched grid views. With `outcome_id`, the `side` selector resolves to side_index 0 (`yes`, default), 1 (`no`), or returns both (`both`).
+         *
+         *     Trade-side fields (`buy_volume`, `sell_volume`) carry the directional split: `buy_volume` counts taker buys of this leg, `sell_volume` counts taker sells. Composition events (SPLIT_OUTCOME, MERGE_OUTCOME, MERGE_QUESTION, NEGATE_OUTCOME) and SETTLEMENT payouts are excluded from candles by design; query them via `/v1/hyperliquid/outcomes/trades` for the raw stream.
+         *
+         *     When multiple legs are requested, each timestamp bucket is paginated as a unit — the response contains every requested leg's candle for the most recent `limit` distinct timestamps.
+         *
+         *     Every row embeds the compact `outcome` leg context (`outcome_id`, `outcome_name`, `question_id`, `question_name`, `status`, `settle_fraction`, `coin`, `side_index`, `side_label`). For full outcome metadata call `/v1/hyperliquid/outcomes?outcome_id=...`.
+         */
+        get: operations["getV1HyperliquidOutcomesOhlc"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/hyperliquid/outcomes/trades": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Outcome Trades
+         * @description Returns a chronological fill feed for HIP-4 outcome markets. Each row is a single fill carrying price, size, side (`BID` = user bought, `ASK` = user sold), and one of seven directions:
+         *
+         *     - `BUY`, `SELL`: regular taker matches. These are the only directions that flow into OHLCV candles.
+         *     - `SETTLEMENT`: payout when the outcome resolved. Size = position cleared, price = 1 on the winning leg or 0 on the losing leg.
+         *     - `SPLIT_OUTCOME`: user minted both Yes+No legs by depositing $1 of the quote token.
+         *     - `MERGE_OUTCOME`: user redeemed Yes+No legs back to $1 of the quote token.
+         *     - `MERGE_QUESTION`: user redeemed a full set of question outcomes back to $1 (multi-outcome only).
+         *     - `NEGATE_OUTCOME`: converted a Yes-leg holding into a No-leg holding for the *other* outcomes under the same question (multi-outcome only).
+         *
+         *     Filters compose additively. At least one of `coin`, `outcome_id`, `question_id`, or `user` is required. Defaults to the last 24 hours when no time range is specified.
+         *
+         *     Every row embeds the compact `outcome` leg context (`outcome_id`, `outcome_name`, `question_id`, `question_name`, `status`, `settle_fraction`, `coin`, `side_index`, `side_label`). For full outcome metadata call `/v1/hyperliquid/outcomes?outcome_id=...`.
+         *
+         *     For candle aggregates of the BUY/SELL subset, see `/v1/hyperliquid/outcomes/ohlc`. `fee_token` shows `+<coin_number>` on zero-fee fills (Hyperliquid wire-format quirk).
+         */
+        get: operations["getV1HyperliquidOutcomesTrades"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/hyperliquid/outcomes/users": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Outcome User Lookup
+         * @description **At least one of `user`, `outcome_id`, or `question_id` is required** — calls without any of these return `400`.
+         *
+         *     Returns trading aggregates per outcome with both side legs (Yes/No or custom labels) collapsed into one row per (user, outcome). Includes fill count, buys/sells split, volume bought/sold, realized PnL, and first/last trade times.
+         *
+         *     Filters compose additively. Sorted by `sort_by` descending (default `total_volume`; also `transactions`, `realized_pnl`) — when `user` is omitted the response is a leaderboard for the given outcome / question scope.
+         *
+         *     SETTLEMENT events contribute to `realized_pnl` (the resolution payout is realized P&L for positions held to resolution) but do not count toward `transactions` / `buys` / `sells` / `volume_*` — those reflect actual taker trade activity. SPLIT/MERGE/MERGE_QUESTION/NEGATE composition events are excluded from every aggregate.
+         *
+         *     `interval` selects the lookback window applied at MV refresh time: `1h`, `1d`, `1w`, `30d`. Omit for all-time. Each interval is a sliding window of fills whose `fill_time >= now() - interval` at the most recent MV refresh; rows have up to one hour of staleness (and up to six hours for the all-time aggregate). Backed by `state_user_by_coin`.
+         *
+         *     Every row embeds the compact `outcome` context (`outcome_id`, `outcome_name`, `question_id`, `question_name`, `status`, `settle_fraction`). For full outcome metadata (description, side_specs, named_outcome_ids, etc.) call `/v1/hyperliquid/outcomes?outcome_id=...`.
+         */
+        get: operations["getV1HyperliquidOutcomesUsers"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/hyperliquid/outcomes/users/activity": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Outcome User Activity
+         * @description **At least one of `user`, `coin`, `outcome_id`, or `question_id` is required** — calls without any of these return `400`.
+         *
+         *     Returns the chronological composition-event feed for HIP-4 outcome positions — one row per (event, affected leg). Covers `SETTLEMENT` (resolution payouts), `SPLIT_OUTCOME` (mint Yes+No from collateral), `MERGE_OUTCOME` (redeem Yes+No to collateral), `MERGE_QUESTION` (redeem the full Yes-set of a multi-outcome question), and `NEGATE_OUTCOME` (convert a No-A holding into Yes-on-every-other-outcome under the same question).
+         *
+         *     BUY/SELL taker fills are not served by this endpoint — query `/v1/hyperliquid/outcomes/trades` for those. The `direction` enum here is restricted to the five composition tags; passing `BUY`/`SELL` returns `400`.
+         *
+         *     Filters compose additively. Defaults to the last 24 hours when no time range is specified.
+         *
+         *     `closed_pnl` carries the realized USDC delta for the row's leg (settlement payouts on the winning leg are positive; merge/redeem rows carry the collateral-side delta). For position-level rollups see `/v1/hyperliquid/outcomes/users`; for current open share balances see `/v1/hyperliquid/outcomes/users/positions`.
+         *
+         *     Every row embeds the compact `outcome` leg context (`outcome_id`, `outcome_name`, `question_id`, `question_name`, `status`, `settle_fraction`, `coin`, `side_index`, `side_label`). For full outcome metadata call `/v1/hyperliquid/outcomes?outcome_id=...`.
+         */
+        get: operations["getV1HyperliquidOutcomesUsersActivity"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/hyperliquid/outcomes/users/positions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Outcome User Positions
+         * @description **At least one of `user`, `coin`, `outcome_id`, or `question_id` is required** — calls without any of these return `400`.
+         *
+         *     Returns each user's current open share balance per outcome leg, derived from the full history of `outcome_fills`. HIP-4's `side` field encodes share-flow direction (BID = receive, ASK = release); the running sum across BUY/SELL/SETTLEMENT/SPLIT/MERGE/NEGATE composition events yields the user's current share count, in line with HL `spotClearinghouseState.balances[]`.
+         *
+         *     Filters compose additively. When `user` is omitted the response is a holder list for the requested outcome / question / coin scope, sorted by share_balance descending.
+         *
+         *     Only currently-open long positions are returned (`share_balance > 0`). Settled outcomes naturally drop out via SETTLEMENT ASK fills that zero the running sum. Coverage caveat: a sink that has not been backfilled to a block predating the user's earliest activity will under-report by the shares acquired before the backfill horizon. Reconcile against HL `spotClearinghouseState` when authoritative numbers are required.
+         *
+         *     Every row embeds the compact `outcome` leg context (`outcome_id`, `outcome_name`, `question_id`, `question_name`, `status`, `settle_fraction`, `coin`, `side_index`, `side_label`). For full outcome metadata call `/v1/hyperliquid/outcomes?outcome_id=...`.
+         */
+        get: operations["getV1HyperliquidOutcomesUsersPositions"];
         put?: never;
         post?: never;
         delete?: never;
@@ -1011,11 +1182,11 @@ export interface paths {
          * User Lookup
          * @description Returns trading aggregates per user: fill count, volume broken down by side, total fees (negative values represent net maker rebates), realized PnL, net funding paid or received, liquidation-fill count, distinct coins traded, and first/last trade timestamps.
          *
-         *     Omit `user` for leaderboard mode — returns a paginated list sorted by `sort_by`. Provide `user` for profile mode — returns a single row. Filters `coin` and `dex` compose additively — pass either or both to narrow the scope (`coin=BTC` for one market, `dex=xyz` for one venue, both together for redundancy). A mismatched combination (e.g. `coin=cash:TSLA&dex=xyz`) returns an empty result.
+         *     Omit `user` for leaderboard mode (a paginated list sorted by `sort_by`). Provide `user` for profile mode (a single row). Filters `coin` and `dex` compose additively; pass either or both to narrow the scope (`coin=BTC` for one market, `dex=xyz` for one venue, both together for redundancy). A mismatched combination (e.g. `coin=cash:TSLA&dex=xyz`) returns empty.
          *
-         *     Aggregation windows are fixed via the `interval` parameter — `1h`, `1d`, `1w`, `30d`, or omit for all-time. Data is refreshed hourly, so `1h` lags up to 1h.
+         *     Aggregation windows are fixed via the `interval` parameter: `1h`, `1d`, `1w`, `30d`, or omit for all-time. Data is refreshed hourly, so `1h` lags up to 1h.
          *
-         *     Vaults trade as normal accounts, so passing a vault address as `user` returns its trading performance — pair with `/v1/hyperliquid/vaults` for depositor-side stats.
+         *     Vaults trade as normal accounts, so passing a vault address as `user` returns its trading performance. Pair with `/v1/hyperliquid/vaults` for depositor-side stats.
          */
         get: operations["getV1HyperliquidUsers"];
         put?: never;
@@ -1059,11 +1230,11 @@ export interface paths {
         };
         /**
          * User Activity
-         * @description Returns a chronological feed of balance-changing events for a user — bridge deposits/withdrawals, on-chain account deposits/withdrawals, vault deposits/withdrawals, liquidations, and funding payments. Each row carries an `event_type` discriminator and a `notes` field with type-specific extras (e.g. funding rate and position size for funding events).
+         * @description Returns a chronological feed of balance-changing events for a user: bridge deposits and withdrawals, on-chain account deposits and withdrawals, vault deposits and withdrawals, liquidations, and funding payments. Each row carries an `event_type` discriminator and a `notes` field with type-specific extras (e.g. funding rate and position size for funding events).
          *
          *     For trade fills, use `/v1/hyperliquid/markets/activity` instead.
          *
-         *     Supply `event_types` (comma-separated) to filter to a subset. Defaults to the last 30 days when no time range is specified — provide `start_time` and `end_time` to query older data.
+         *     Supply `event_types` (comma-separated) to filter to a subset. Defaults to the last 30 days when no time range is specified. Pass `start_time` and `end_time` to query older data.
          */
         get: operations["getV1HyperliquidUsersActivity"];
         put?: never;
@@ -1083,11 +1254,11 @@ export interface paths {
         };
         /**
          * Vault Listings
-         * @description Returns vault summaries — leader, lifetime flow totals (deposits, withdrawals, distributions, leader commissions), depositor and event counts, and last-activity timestamp.
+         * @description Returns vault summaries: leader, lifetime flow totals (deposits, withdrawals, distributions, leader commissions), depositor and event counts, and last-activity timestamp.
          *
-         *     Vault trading PnL/volume is exposed via `/v1/hyperliquid/users` with the vault address as `user` (vaults trade as normal accounts on Hyperliquid). Per-depositor breakdowns live on `/v1/hyperliquid/vaults/depositors`.
+         *     Vault trading PnL and volume are exposed via `/v1/hyperliquid/users` with the vault address as `user` (vaults trade as normal accounts on Hyperliquid). Per-depositor breakdowns live on `/v1/hyperliquid/vaults/depositors`.
          *
-         *     Vaults predating our indexer cutover (2026-02-02) have no `ledger_vault_creates` row and come back with `leader`/`created_at` as null and `initial_deposit`/`create_fee` as 0.
+         *     Vaults predating our indexer cutover (2026-02-02) have no `ledger_vault_creates` row and come back with `leader` and `created_at` as null, and `initial_deposit` and `create_fee` as 0.
          */
         get: operations["getV1HyperliquidVaults"];
         put?: never;
@@ -1107,7 +1278,7 @@ export interface paths {
         };
         /**
          * Vault Depositors
-         * @description Returns the per-depositor breakdown for a single vault — one row per `(user, vault)` pair with lifetime deposits, lifetime net withdrawals (after vault commission and closing cost), distributions received, deposit and withdrawal counts, and last-activity timestamp.
+         * @description Returns the per-depositor breakdown for a single vault, with one row per `(user, vault)` pair: lifetime deposits, lifetime net withdrawals (after vault commission and closing cost), distributions received, deposit and withdrawal counts, and last-activity timestamp.
          *
          *     For the vault-level summary, see `/v1/hyperliquid/vaults`.
          */
@@ -1129,7 +1300,7 @@ export interface paths {
         };
         /**
          * Platform Activity
-         * @description Returns a platform-wide time series aggregating all coins and DEXs into one row per `timestamp`. Each row carries trade volume (split by side), trade and counterparty counts, distinct active coins, total fees, and a liquidation slice (`liquidations_volume`, `liquidations_count`, `unique_liquidated_users`).
+         * @description Returns a platform-wide time series aggregating all coins and DEXs into one row per `timestamp`. Each row carries total trade volume (`volume`) and its taker-buy / taker-sell split, transaction count, distinct active coins, total fees, and a liquidation slice (`liquidations_volume`, `liquidations_count`, `unique_liquidated_users`).
          *
          *     Use this endpoint instead of summing per-coin or per-DEX data client-side when you need cross-market totals. Per-coin OHLCV lives on `/v1/hyperliquid/markets/ohlc`; per-DEX on `/v1/hyperliquid/dexes`.
          */
@@ -1173,7 +1344,7 @@ export interface paths {
         };
         /**
          * Market OHLCV
-         * @description Returns OHLCV price data for a single outcome token. Each market has two outcome tokens (e.g. Yes and No) — use `/v1/polymarket/markets` to discover them.
+         * @description Returns OHLCV price candles for a single outcome token. Each market has two outcome tokens (e.g. Yes and No); use `/v1/polymarket/markets` to discover them.
          *
          *     Prices are in USD per share (0 to 1). Volume and fees are in USDC.
          */
@@ -1195,9 +1366,9 @@ export interface paths {
         };
         /**
          * Market Open Interest
-         * @description Returns open interest time-series for a market. Open interest is the USDC collateral locked into conditional token positions — it increases on splits (deposit USDC to mint Yes+No pairs) and decreases on merges (return pairs to withdraw USDC) or redemptions.
+         * @description Returns the open-interest time series for a market. Open interest is the USDC collateral locked into conditional token positions. It increases on splits (deposit USDC to mint Yes+No pairs) and decreases on merges (return pairs to withdraw USDC) or redemptions.
          *
-         *     Provide **one** of `condition_id` or `market_slug`.
+         *     Provide exactly one of `condition_id` or `market_slug`.
          */
         get: operations["getV1PolymarketMarketsOi"];
         put?: never;
@@ -1221,7 +1392,7 @@ export interface paths {
          *
          *     For trades, `market.token_id` and `market.outcome_label` identify the specific outcome token. For splits, merges, and redemptions, these are null because the operation applies to the market as a whole.
          *
-         *     At least one of `user`, `token_id`, or `condition_id` is required. Defaults to the last 24 hours when no time range is specified — provide `start_time` and `end_time` to query older data.
+         *     At least one of `user`, `token_id`, or `condition_id` is required. Defaults to the last 24 hours when no time range is specified. Pass `start_time` and `end_time` to query older data.
          */
         get: operations["getV1PolymarketMarketsActivity"];
         put?: never;
@@ -1241,7 +1412,7 @@ export interface paths {
         };
         /**
          * Market Positions
-         * @description Returns all user positions for a specific outcome token — a leaderboard view. Each row is one user's cumulative position: cost basis, PNL, shares held, and current value.
+         * @description Returns all user positions for a specific outcome token, as a leaderboard view. Each row is one user's cumulative position: cost basis, PNL, shares held, and current value.
          *
          *     For a user's portfolio across all markets, use `/v1/polymarket/positions` instead.
          */
@@ -1263,7 +1434,7 @@ export interface paths {
         };
         /**
          * Platform Aggregates
-         * @description Returns platform-wide time-series combining trading volume, open interest, and fee aggregates across all Polymarket markets.
+         * @description Returns a platform-wide time series combining trading volume, open interest, and fee aggregates across all Polymarket markets.
          */
         get: operations["getV1PolymarketPlatform"];
         put?: never;
@@ -1327,7 +1498,7 @@ export interface paths {
         };
         /**
          * Health Check
-         * @description Verifies that all database connections are established.
+         * @description Returns the status of all database connections used by the API.
          */
         get: operations["getV1Health"];
         put?: never;
@@ -1346,8 +1517,8 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * API Version Info
-         * @description Returns API version, build date, and commit information.
+         * API Version
+         * @description Returns the API version, build date, and commit hash.
          */
         get: operations["getV1Version"];
         put?: never;
@@ -1367,7 +1538,7 @@ export interface paths {
         };
         /**
          * Supported Networks
-         * @description Returns supported blockchain networks with identifiers, metadata, and indexed block information per database category.
+         * @description Returns supported blockchain networks with identifiers, metadata, and per-category indexing freshness.
          */
         get: operations["getV1Networks"];
         put?: never;
@@ -1387,7 +1558,7 @@ export interface paths {
         };
         /**
          * Pinax API Skill
-         * @description Returns the public Markdown reference for AI agents integrating with Pinax API.
+         * @description Returns the Markdown reference for AI agents integrating with Pinax API.
          */
         get: operations["getSkillsMarkdown"];
         put?: never;
@@ -1407,7 +1578,7 @@ export interface paths {
         };
         /**
          * LLM Documentation Index
-         * @description Returns the public llms.txt documentation index for AI tools discovering Pinax API.
+         * @description Returns the llms.txt documentation index for AI tools discovering Pinax API.
          */
         get: operations["getLlmsText"];
         put?: never;
@@ -1427,7 +1598,7 @@ export interface paths {
         };
         /**
          * x402 Discovery
-         * @description Returns the public x402 discovery document. Payment enforcement, verification, settlement, and metering are handled by the proxy layer.
+         * @description Returns the x402 discovery document. Payment enforcement, verification, settlement, and metering are handled by the proxy layer.
          */
         get: operations["getX402Discovery"];
         put?: never;
@@ -1447,7 +1618,7 @@ export interface paths {
         };
         /**
          * OpenAPI Specification
-         * @description Returns the public OpenAPI specification for Pinax API.
+         * @description Returns the OpenAPI specification for Pinax API.
          */
         get: operations["getOpenapiSpec"];
         put?: never;
@@ -1519,6 +1690,10 @@ export interface operations {
                     "application/json": {
                         data: {
                             block_num: number;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             datetime: string;
                             timestamp: number;
                             signature: string;
@@ -1702,6 +1877,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             last_update: string;
                             last_update_block_num: number;
                             last_update_timestamp: number;
@@ -1856,6 +2035,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             last_update: string;
                             last_update_block_num: number;
                             last_update_timestamp: number;
@@ -2010,6 +2193,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             last_update: string;
                             last_update_block_num: number;
                             last_update_timestamp: number;
@@ -2142,6 +2329,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             last_update: string;
                             last_update_block_num: number;
                             last_update_timestamp: number;
@@ -2296,6 +2487,10 @@ export interface operations {
                     "application/json": {
                         data: {
                             block_num: number;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             datetime: string;
                             timestamp: number;
                             signature: string;
@@ -2470,6 +2665,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             last_update: string;
                             last_update_block_num: number;
                             last_update_timestamp: number;
@@ -2616,6 +2815,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             last_update: string;
                             last_update_block_num: number;
                             last_update_timestamp: number;
@@ -2757,6 +2960,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             last_update: string;
                             last_update_block_num: number;
                             last_update_timestamp: number;
@@ -2920,6 +3127,10 @@ export interface operations {
                     "application/json": {
                         data: {
                             block_num: number;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             datetime: string;
                             timestamp: number;
                             /**
@@ -3295,6 +3506,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             datetime: string;
                             /**
                              * Format: svm-address
@@ -3584,6 +3799,10 @@ export interface operations {
                     "application/json": {
                         data: {
                             block_num: number;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             datetime: string;
                             timestamp: number;
                             /**
@@ -3741,6 +3960,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             last_update: string;
                             last_update_block_num: number;
                             last_update_timestamp: number;
@@ -3883,6 +4106,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             last_update: string;
                             last_update_block_num: number;
                             last_update_timestamp: number;
@@ -3901,7 +4128,8 @@ export interface operations {
                             amount: string;
                             /** @description Decimal-scaled token amount (= amount / 10^decimals). Not a USD value. */
                             value: number;
-                            is_contract: boolean;
+                            /** @description Whether the address is a smart contract. Returns null on chains where contract-deployment data is unavailable (currently hyperevm and avalanche, which are extracted via the firehose RPC poller). */
+                            is_contract: boolean | null;
                             name: string | null;
                             symbol: string | null;
                             decimals: number | null;
@@ -4022,6 +4250,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             last_update: string;
                             last_update_block_num: number;
                             last_update_timestamp: number;
@@ -4170,6 +4402,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             datetime: string;
                             /**
                              * Format: evm-address
@@ -4324,6 +4560,10 @@ export interface operations {
                     "application/json": {
                         data: {
                             block_num: number;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             datetime: string;
                             timestamp: number;
                             /**
@@ -4467,6 +4707,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             last_update: string;
                             last_update_block_num: number;
                             last_update_timestamp: number;
@@ -4601,6 +4845,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             last_update: string;
                             last_update_block_num: number;
                             last_update_timestamp: number;
@@ -4613,7 +4861,8 @@ export interface operations {
                             amount: string;
                             /** @description Decimal-scaled token amount (= amount / 10^decimals). Not a USD value. */
                             value: number;
-                            is_contract: boolean;
+                            /** @description Whether the address is a smart contract. Returns null on chains where contract-deployment data is unavailable (currently hyperevm and avalanche, which are extracted via the firehose RPC poller). */
+                            is_contract: boolean | null;
                             name: string | null;
                             symbol: string | null;
                             decimals: number | null;
@@ -4732,6 +4981,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             last_update: string;
                             last_update_block_num: number;
                             last_update_timestamp: number;
@@ -4871,6 +5124,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             datetime: string;
                             /**
                              * Format: evm-address
@@ -5041,6 +5298,10 @@ export interface operations {
                     "application/json": {
                         data: {
                             block_num: number;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             datetime: string;
                             timestamp: number;
                             transaction_id: string;
@@ -5270,6 +5531,8 @@ export interface operations {
                                 symbol: string | null;
                                 decimals: number | null;
                             };
+                            fee: number;
+                            transactions: number;
                             /**
                              * @description The Graph Network ID for EVM networks https://thegraph.com/networks
                              * @example mainnet
@@ -5397,6 +5660,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             datetime: string;
                             ticker: string;
                             /**
@@ -5666,13 +5933,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
-                            contract_creation: string;
-                            /**
-                             * Format: evm-address
-                             * @description Filter by address
-                             * @example 0xd8da6bf26964af9d7eed9e03e53415d37aa96045
-                             */
-                            contract_creator: string;
+                            /** @description Block timestamp when the contract was deployed. Returns null on chains where contract-deployment data is unavailable (currently hyperevm and avalanche, which are extracted via the firehose RPC poller). */
+                            contract_creation: string | null;
+                            /** @description Address that deployed the contract. Returns null on chains where contract-deployment data is unavailable (currently hyperevm and avalanche, which are extracted via the firehose RPC poller). */
+                            contract_creator: string | null;
                             /**
                              * Format: evm-address
                              * @description Filter by contract address
@@ -6279,6 +6543,10 @@ export interface operations {
                     "application/json": {
                         data: {
                             block_num: number;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             datetime: string;
                             timestamp: number;
                             /**
@@ -6456,6 +6724,10 @@ export interface operations {
                     "application/json": {
                         data: {
                             block_num: number;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             datetime: string;
                             timestamp: number;
                             /**
@@ -6639,6 +6911,10 @@ export interface operations {
                     "application/json": {
                         data: {
                             block_num: number;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             datetime: string;
                             timestamp: number;
                             /**
@@ -6791,6 +7067,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             last_update: string;
                             last_update_block_num: number;
                             last_update_timestamp: number;
@@ -6941,6 +7221,10 @@ export interface operations {
                     "application/json": {
                         data: {
                             block_num: number;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             datetime: string;
                             timestamp: number;
                             /**
@@ -7083,6 +7367,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             last_update: string;
                             last_update_block_num: number;
                             last_update_timestamp: number;
@@ -7232,6 +7520,10 @@ export interface operations {
                     "application/json": {
                         data: {
                             block_num: number;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             datetime: string;
                             timestamp: number;
                             transaction_id: string;
@@ -7441,39 +7733,53 @@ export interface operations {
                     "application/json": {
                         data: {
                             /**
-                             * Format: evm-address
+                             * Format: tvm-address
                              * @description Filter by factory address
-                             * @example 0x5c69bee701ef814a2b6a3edd4b1652cb9cc5aa6f
+                             * @example TKWJdrQkqHisa1X8HUdHEfREvTzw4pMAaY
                              */
                             factory: string;
                             /**
+                             * Format: tvm-address
                              * @description Filter by pool address
-                             * @example 0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640
+                             * @example TFGDbUyP8xez44C76fin3bn3Ss6jugoUwJ
                              */
                             pool: string;
                             input_token: {
-                                address: string | null;
-                                symbol: string | null;
-                                decimals: number | null;
+                                /**
+                                 * Format: tvm-address
+                                 * @description Filter by address
+                                 * @example TRX9Uehj3GuFVh5jjVjNqb6q9cgVHJ4jGX
+                                 */
+                                address: string;
+                                symbol: string;
+                                name: string;
+                                decimals: number;
                             };
                             output_token: {
-                                address: string | null;
-                                symbol: string | null;
-                                decimals: number | null;
+                                /**
+                                 * Format: tvm-address
+                                 * @description Filter by address
+                                 * @example TRX9Uehj3GuFVh5jjVjNqb6q9cgVHJ4jGX
+                                 */
+                                address: string;
+                                symbol: string;
+                                name: string;
+                                decimals: number;
                             };
                             fee: number;
                             /**
                              * @description Protocol name
-                             * @example uniswap_v3
+                             * @example uniswap_v2
                              * @enum {string}
                              */
-                            protocol: "uniswap_v1" | "uniswap_v2" | "uniswap_v3" | "uniswap_v4" | "curvefi" | "balancer" | "bancor" | "cow" | "aerodrome" | "dodo" | "woofi" | "traderjoe" | "kyber_elastic";
+                            protocol: "uniswap_v1" | "uniswap_v2" | "uniswap_v3" | "uniswap_v4" | "sunpump";
+                            transactions: number;
                             /**
-                             * @description The Graph Network ID for EVM networks https://thegraph.com/networks
-                             * @example mainnet
+                             * @description The Graph Network ID for TVM networks https://thegraph.com/networks
+                             * @example tron
                              * @enum {string}
                              */
-                            network: "arbitrum-one" | "avalanche" | "base" | "bsc" | "hyperevm" | "mainnet" | "optimism" | "polygon" | "unichain";
+                            network: "tron";
                         }[];
                         statistics: {
                             elapsed?: number;
@@ -7595,6 +7901,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             datetime: string;
                             ticker: string;
                             /**
@@ -7742,6 +8052,10 @@ export interface operations {
                             protocol: "uniswap_v1" | "uniswap_v2" | "uniswap_v3" | "uniswap_v4" | "sunpump";
                             transactions: number;
                             uaw: number;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             last_activity: string;
                             /**
                              * @description The Graph Network ID for TVM networks https://thegraph.com/networks
@@ -7856,7 +8170,7 @@ export interface operations {
                     "application/json": {
                         data: {
                             /**
-                             * @description DEX identifier. `perps` for core perps, `spot` for `@N` spot pairs, or a builder DEX name (`xyz`, `cash`, …). Call `/v1/hyperliquid/dexes` for the live set.
+                             * @description DEX identifier. `perps` for core perps, `spot` for `@N` spot pairs, or a builder DEX name (`xyz`, `cash`, …). Outcome markets are served separately under `/v1/hyperliquid/outcomes/*`.
                              * @example perps
                              * @example spot
                              * @example xyz
@@ -7866,8 +8180,9 @@ export interface operations {
                              * @example flx
                              * @example vntl
                              * @example para
+                             * @enum {string}
                              */
-                            dex: string;
+                            dex: "perps" | "spot" | "xyz" | "cash" | "km" | "hyna" | "flx" | "vntl" | "para";
                             assets: number;
                             volume_24h: number;
                             trades_24h: number;
@@ -7964,10 +8279,10 @@ export interface operations {
     getV1HyperliquidMarkets: {
         parameters: {
             query?: {
-                /** @description Hyperliquid coin identifier. Core perps have no prefix (`BTC`, `HYPE`); spot pairs use `@N` (`@107`); builder DEXs prefix the symbol with the DEX name (`xyz:SILVER`).<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                /** @description Hyperliquid coin id. Perps: `BTC`. Spot: `@N` (`@107`). Builder DEXs: `xyz:SILVER`. Outcome coins (`#N`) are rejected — use `/v1/hyperliquid/outcomes/*`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
                 coin?: string | string[];
-                /** @description DEX identifier. `perps` for core perps, `spot` for `@N` spot pairs, or a builder DEX name (`xyz`, `cash`, …). Call `/v1/hyperliquid/dexes` for the live set.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
-                dex?: string | string[];
+                /** @description DEX identifier. `perps` for core perps, `spot` for `@N` spot pairs, or a builder DEX name (`xyz`, `cash`, …). Outcome markets are served separately under `/v1/hyperliquid/outcomes/*`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                dex?: "perps" | "spot" | "xyz" | "cash" | "km" | "hyna" | "flx" | "vntl" | "para";
                 /** @description Token symbol (e.g. `HYPE`, `USDC`, `BTC`). Use to discover markets with this token on a given side via `/v1/hyperliquid/markets?base_token=...` or `?quote_token=...`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
                 base_token?: string | string[];
                 /** @description Token symbol (e.g. `HYPE`, `USDC`, `BTC`). Use to discover markets with this token on a given side via `/v1/hyperliquid/markets?base_token=...` or `?quote_token=...`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
@@ -8099,10 +8414,10 @@ export interface operations {
     getV1HyperliquidMarketsOhlc: {
         parameters: {
             query: {
-                /** @description Hyperliquid coin identifier. Core perps have no prefix (`BTC`, `HYPE`); spot pairs use `@N` (`@107`); builder DEXs prefix the symbol with the DEX name (`xyz:SILVER`). */
+                /** @description Hyperliquid coin id. Perps: `BTC`. Spot: `@N` (`@107`). Builder DEXs: `xyz:SILVER`. Outcome coins (`#N`) are rejected — use `/v1/hyperliquid/outcomes/*`. */
                 coin: string;
-                /** @description DEX identifier. `perps` for core perps, `spot` for `@N` spot pairs, or a builder DEX name (`xyz`, `cash`, …). Call `/v1/hyperliquid/dexes` for the live set. */
-                dex?: string;
+                /** @description DEX identifier. `perps` for core perps, `spot` for `@N` spot pairs, or a builder DEX name (`xyz`, `cash`, …). Outcome markets are served separately under `/v1/hyperliquid/outcomes/*`. */
+                dex?: "perps" | "spot" | "xyz" | "cash" | "km" | "hyna" | "flx" | "vntl" | "para";
                 /** @description The interval* for which to aggregate price data (1-minute, 5-minutes, 10-minutes, 30-minutes, hourly, 4-hours, daily or weekly).<br>*Plan restricted. */
                 interval?: "1m" | "5m" | "10m" | "30m" | "1h" | "4h" | "1d" | "1w";
                 /** @description UNIX timestamp in seconds or date string (e.g. "2025-01-01T00:00:00Z", "2025-01-01", ...). */
@@ -8128,6 +8443,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             timestamp: string;
                             coin: string;
                             market_name: string;
@@ -8146,8 +8465,6 @@ export interface operations {
                             open_short_volume: number;
                             close_short_volume: number;
                             transactions: number;
-                            buys: number;
-                            sells: number;
                             unique_users: number;
                             total_fees: number;
                         }[];
@@ -8242,10 +8559,10 @@ export interface operations {
     getV1HyperliquidMarketsOi: {
         parameters: {
             query: {
-                /** @description Hyperliquid coin identifier. Core perps have no prefix (`BTC`, `HYPE`); spot pairs use `@N` (`@107`); builder DEXs prefix the symbol with the DEX name (`xyz:SILVER`).<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                /** @description Hyperliquid coin id. Perps: `BTC`. Spot: `@N` (`@107`). Builder DEXs: `xyz:SILVER`. Outcome coins (`#N`) are rejected — use `/v1/hyperliquid/outcomes/*`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
                 coin: string | string[];
-                /** @description DEX identifier. `perps` for core perps, `spot` for `@N` spot pairs, or a builder DEX name (`xyz`, `cash`, …). Call `/v1/hyperliquid/dexes` for the live set.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
-                dex?: string | string[];
+                /** @description DEX identifier. `perps` for core perps, `spot` for `@N` spot pairs, or a builder DEX name (`xyz`, `cash`, …). Outcome markets are served separately under `/v1/hyperliquid/outcomes/*`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                dex?: "perps" | "spot" | "xyz" | "cash" | "km" | "hyna" | "flx" | "vntl" | "para";
                 /** @description The interval* for which to aggregate price data (1-minute, 5-minutes, 10-minutes, 30-minutes, hourly, 4-hours, daily or weekly).<br>*Plan restricted. */
                 interval?: "1m" | "5m" | "10m" | "30m" | "1h" | "4h" | "1d" | "1w";
                 /** @description UNIX timestamp in seconds or date string (e.g. "2025-01-01T00:00:00Z", "2025-01-01", ...). */
@@ -8271,6 +8588,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             timestamp: string;
                             coin: string;
                             market_name: string;
@@ -8379,12 +8700,14 @@ export interface operations {
     getV1HyperliquidMarketsActivity: {
         parameters: {
             query?: {
-                /** @description Hyperliquid coin identifier. Core perps have no prefix (`BTC`, `HYPE`); spot pairs use `@N` (`@107`); builder DEXs prefix the symbol with the DEX name (`xyz:SILVER`).<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                /** @description Hyperliquid coin id. Perps: `BTC`. Spot: `@N` (`@107`). Builder DEXs: `xyz:SILVER`. Outcome coins (`#N`) are rejected — use `/v1/hyperliquid/outcomes/*`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
                 coin?: string | string[];
-                /** @description DEX identifier. `perps` for core perps, `spot` for `@N` spot pairs, or a builder DEX name (`xyz`, `cash`, …). Call `/v1/hyperliquid/dexes` for the live set.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
-                dex?: string | string[];
+                /** @description DEX identifier. `perps` for core perps, `spot` for `@N` spot pairs, or a builder DEX name (`xyz`, `cash`, …). Outcome markets are served separately under `/v1/hyperliquid/outcomes/*`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                dex?: "perps" | "spot" | "xyz" | "cash" | "km" | "hyna" | "flx" | "vntl" | "para";
                 /** @description Filter by address<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
                 user?: string | string[];
+                /** @description Restrict by perp/spot direction tag. Includes `BUY`/`SELL` matches, perp `OPEN_*`/`CLOSE_*` transitions, forced liquidations, delisted-market `SETTLEMENT`, and housekeeping flows. Omit for all.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                direction?: "BUY" | "SELL" | "OPEN_LONG" | "CLOSE_LONG" | "OPEN_SHORT" | "CLOSE_SHORT" | "LONG_TO_SHORT" | "SHORT_TO_LONG" | "SPOT_DUST_CONVERSION" | "LIQUIDATED_CROSS_LONG" | "LIQUIDATED_CROSS_SHORT" | "LIQUIDATED_ISOLATED_LONG" | "LIQUIDATED_ISOLATED_SHORT" | "AUTO_DELEVERAGING" | "SETTLEMENT" | "NET_CHILD_VAULTS" | "BACKSTOP_BORROW_LIQUIDATION" | "PARTIAL_BORROW_LIQUIDATION";
                 /** @description UNIX timestamp in seconds or date string (e.g. "2025-01-01T00:00:00Z", "2025-01-01", ...). */
                 start_time?: string;
                 /** @description UNIX timestamp in seconds or date string (e.g. "2025-01-01T00:00:00Z", "2025-01-01", ...). */
@@ -8409,6 +8732,10 @@ export interface operations {
                     "application/json": {
                         data: {
                             block_num: number;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             timestamp: string;
                             transaction_hash: string;
                             transaction_id: number;
@@ -8521,12 +8848,14 @@ export interface operations {
     getV1HyperliquidMarketsLiquidations: {
         parameters: {
             query?: {
-                /** @description Hyperliquid coin identifier. Core perps have no prefix (`BTC`, `HYPE`); spot pairs use `@N` (`@107`); builder DEXs prefix the symbol with the DEX name (`xyz:SILVER`).<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                /** @description Hyperliquid coin id. Perps: `BTC`. Spot: `@N` (`@107`). Builder DEXs: `xyz:SILVER`. Outcome coins (`#N`) are rejected — use `/v1/hyperliquid/outcomes/*`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
                 coin?: string | string[];
-                /** @description DEX identifier. `perps` for core perps, `spot` for `@N` spot pairs, or a builder DEX name (`xyz`, `cash`, …). Call `/v1/hyperliquid/dexes` for the live set.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
-                dex?: string | string[];
+                /** @description DEX identifier. `perps` for core perps, `spot` for `@N` spot pairs, or a builder DEX name (`xyz`, `cash`, …). Outcome markets are served separately under `/v1/hyperliquid/outcomes/*`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                dex?: "perps" | "spot" | "xyz" | "cash" | "km" | "hyna" | "flx" | "vntl" | "para";
                 /** @description Filter by address<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
                 liquidated_user?: string | string[];
+                /** @description Restrict by liquidation kind. `LIQUIDATED_CROSS_*` / `LIQUIDATED_ISOLATED_*` cover margin-based liquidations; `AUTO_DELEVERAGING` is HL ADL; `*_BORROW_LIQUIDATION` covers borrow-side. Omit for all.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                direction?: "LIQUIDATED_CROSS_LONG" | "LIQUIDATED_CROSS_SHORT" | "LIQUIDATED_ISOLATED_LONG" | "LIQUIDATED_ISOLATED_SHORT" | "AUTO_DELEVERAGING" | "BACKSTOP_BORROW_LIQUIDATION" | "PARTIAL_BORROW_LIQUIDATION";
                 sort_by?: "notional" | "time";
                 /** @description UNIX timestamp in seconds or date string (e.g. "2025-01-01T00:00:00Z", "2025-01-01", ...). */
                 start_time?: string;
@@ -8552,6 +8881,10 @@ export interface operations {
                     "application/json": {
                         data: {
                             block_num: number;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             timestamp: string;
                             event_hash: string;
                             coin: string;
@@ -8659,10 +8992,10 @@ export interface operations {
     getV1HyperliquidMarketsLiquidationsOhlc: {
         parameters: {
             query: {
-                /** @description Hyperliquid coin identifier. Core perps have no prefix (`BTC`, `HYPE`); spot pairs use `@N` (`@107`); builder DEXs prefix the symbol with the DEX name (`xyz:SILVER`). */
+                /** @description Hyperliquid coin id. Perps: `BTC`. Spot: `@N` (`@107`). Builder DEXs: `xyz:SILVER`. Outcome coins (`#N`) are rejected — use `/v1/hyperliquid/outcomes/*`. */
                 coin: string;
-                /** @description DEX identifier. `perps` for core perps, `spot` for `@N` spot pairs, or a builder DEX name (`xyz`, `cash`, …). Call `/v1/hyperliquid/dexes` for the live set. */
-                dex?: string;
+                /** @description DEX identifier. `perps` for core perps, `spot` for `@N` spot pairs, or a builder DEX name (`xyz`, `cash`, …). Outcome markets are served separately under `/v1/hyperliquid/outcomes/*`. */
+                dex?: "perps" | "spot" | "xyz" | "cash" | "km" | "hyna" | "flx" | "vntl" | "para";
                 /** @description The interval* for which to aggregate price data (1-minute, 5-minutes, 10-minutes, 30-minutes, hourly, 4-hours, daily or weekly).<br>*Plan restricted. */
                 interval?: "1m" | "5m" | "10m" | "30m" | "1h" | "4h" | "1d" | "1w";
                 /** @description UNIX timestamp in seconds or date string (e.g. "2025-01-01T00:00:00Z", "2025-01-01", ...). */
@@ -8688,6 +9021,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             timestamp: string;
                             coin: string;
                             market_name: string;
@@ -8710,11 +9047,953 @@ export interface operations {
                             open_short_volume: number;
                             close_short_volume: number;
                             transactions: number;
-                            buys: number;
-                            sells: number;
                             unique_liquidators: number;
                             unique_liquidated: number;
                             total_fees: number;
+                        }[];
+                        statistics: {
+                            elapsed?: number;
+                            rows_read?: number;
+                            bytes_read?: number;
+                        };
+                        pagination: {
+                            previous_page: number;
+                            current_page: number;
+                        };
+                        results: number;
+                        /** @description ISO 8601 datetime string */
+                        request_time: string;
+                        duration_ms: number;
+                    };
+                };
+            };
+            /** @description Client side error */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Authentication failed */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Server side error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 500 | 502 | 504;
+                        /** @enum {string} */
+                        code: "bad_database_response" | "connection_refused" | "database_timeout" | "internal_server_error";
+                        message: string;
+                    };
+                };
+            };
+        };
+    };
+    getV1HyperliquidOutcomes: {
+        parameters: {
+            query?: {
+                /** @description HIP-4 outcome id (UInt64). One outcome has two side coins, `#<id*10>` and `#<id*10+1>`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                outcome_id?: string | string[];
+                /** @description HIP-4 question id (UInt64). Groups multi-outcome questions (e.g. World Cup). Binary single-outcome markets have no question id.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                question_id?: string | string[];
+                /** @description `live` (still trading) or `settled` (resolution captured via `settledOutcome` probe). `all` returns both. */
+                status?: "live" | "settled" | "all";
+                /** @description Quote token for the outcome market (e.g. `USDC`, `USDH`). */
+                quote_token?: string;
+                /** @description When `true`, include each multi-outcome question's fallback row (the catch-all "none of the above" leg). Defaults to `false` so list responses match the named outcomes a UI would render. Explicit `outcome_id` lookups always return the requested rows regardless of this flag. */
+                include_fallback?: boolean;
+                /** @description `volume_24h` (default) sorts by combined Yes+No leg volume in last 24h, ties broken by `outcome_id`. `last_trade` sorts by recency. `outcome_id` sorts numerically ascending. */
+                sort_by?: "volume_24h" | "last_trade" | "outcome_id";
+                /** @description Number of items* returned in a single request.<br>*Plan restricted. */
+                limit?: number;
+                /** @description Page number to fetch.<br>Empty `data` array signifies end of results. */
+                page?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: {
+                            outcome_id: number;
+                            /** @description Outcome leaf name. For multi-outcome questions this is the per-leg label (team, candidate, bucket). For binary single-outcome markets (`question.question_id IS NULL`) this is the full market title. */
+                            name: string;
+                            description: string;
+                            side_specs: string[];
+                            status: string;
+                            quote_token: string;
+                            settle_fraction: number | null;
+                            settle_details: string | null;
+                            sides: {
+                                label: string;
+                                coin: string;
+                                side_index: number;
+                            }[];
+                            /** @description Last traded price on the Yes leg (side_index=0) within the last 24h. Independent of `price_no`; sum across legs reflects market overround, not a normalized probability. Null when the Yes leg has no activity in the window even if the No leg traded — read `price_no` for the No-leg quote. */
+                            price_yes: number | null;
+                            /** @description Last traded price on the No leg (side_index=1) within the last 24h. Independent of `price_yes`. Null when the No leg has no activity in the window. */
+                            price_no: number | null;
+                            /** @description Close on the Yes leg from 24–48h ago (matches `/v1/hyperliquid/markets` `price_24h` convention). Null when no trades occurred in that window. */
+                            price_yes_24h: number | null;
+                            /** @description Close on the No leg from 24–48h ago. Null when no trades occurred in that window. */
+                            price_no_24h: number | null;
+                            /** @description Decimal price change on the Yes leg over the last 24h, computed as `(price_yes - price_yes_24h) / price_yes_24h`. Null when either anchor is missing. */
+                            price_yes_24h_change: number | null;
+                            /** @description Decimal price change on the No leg over the last 24h. Null when either anchor is missing. */
+                            price_no_24h_change: number | null;
+                            /** @description Combined Yes+No leg taker notional over the last 24h, denominated in the outcome `quote_token`. Direction is signalled via `price_yes_24h_change` / `price_no_24h_change`, mirroring the convention used by Polymarket and Kalshi. */
+                            volume_24h: number;
+                            /** @description Number of BUY/SELL taker fills across both legs in the last 24h. */
+                            trades_24h: number;
+                            last_trade: string | null;
+                            question: {
+                                question_id: number | null;
+                                name: string | null;
+                                description: string | null;
+                                fallback_outcome_id: number | null;
+                                named_outcome_ids: number[];
+                                settled_outcome_ids: number[];
+                            };
+                        }[];
+                        statistics: {
+                            elapsed?: number;
+                            rows_read?: number;
+                            bytes_read?: number;
+                        };
+                        pagination: {
+                            previous_page: number;
+                            current_page: number;
+                        };
+                        results: number;
+                        /** @description ISO 8601 datetime string */
+                        request_time: string;
+                        duration_ms: number;
+                    };
+                };
+            };
+            /** @description Client side error */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Authentication failed */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Server side error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 500 | 502 | 504;
+                        /** @enum {string} */
+                        code: "bad_database_response" | "connection_refused" | "database_timeout" | "internal_server_error";
+                        message: string;
+                    };
+                };
+            };
+        };
+    };
+    getV1HyperliquidOutcomesOhlc: {
+        parameters: {
+            query?: {
+                /** @description Outcome coin (`#<outcome_id*10 + side_index>`). Side index = 0 or 1. Bare digits accepted (auto-prefixed). Discover via `/v1/hyperliquid/outcomes`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                coin?: string | string[];
+                /** @description HIP-4 outcome id (UInt64). One outcome has two side coins, `#<id*10>` and `#<id*10+1>`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                outcome_id?: string | string[];
+                /** @description `yes` (default) returns candles for the side at `side_index=0`, `no` for `side_index=1`, `both` returns both legs interleaved. Only used in combination with `outcome_id`; ignored when `coin` is provided explicitly. */
+                side?: "yes" | "no" | "both";
+                /** @description The interval* for which to aggregate price data (1-minute, 5-minutes, 10-minutes, 30-minutes, hourly, 4-hours, daily or weekly).<br>*Plan restricted. */
+                interval?: "1m" | "5m" | "10m" | "30m" | "1h" | "4h" | "1d" | "1w";
+                /** @description UNIX timestamp in seconds or date string (e.g. "2025-01-01T00:00:00Z", "2025-01-01", ...). */
+                start_time?: string;
+                /** @description UNIX timestamp in seconds or date string (e.g. "2025-01-01T00:00:00Z", "2025-01-01", ...). */
+                end_time?: string;
+                /** @description Number of items* returned in a single request.<br>*Plan restricted. */
+                limit?: number;
+                /** @description Page number to fetch.<br>Empty `data` array signifies end of results. */
+                page?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
+                            timestamp: string;
+                            interval_min: number;
+                            open: number;
+                            high: number;
+                            low: number;
+                            close: number;
+                            buy_volume: number;
+                            sell_volume: number;
+                            gross_volume: number;
+                            net_volume: number;
+                            transactions: number;
+                            outcome: {
+                                outcome_id: number;
+                                /** @description Outcome leaf label. For multi-outcome questions this is the per-leg name (team, candidate, bucket). For binary single-outcome markets it is the full market title. */
+                                outcome_name: string;
+                                /** @description Parent question id; null for binary single-outcome markets. */
+                                question_id: number | null;
+                                /** @description Parent question display name; null when `question_id` is null. */
+                                question_name: string | null;
+                                /** @description `live` while trading, `settled` after resolution. */
+                                status: string;
+                                /** @description HIP-4 `settleFraction`: payout per Yes share at resolution, in [0, 1]. No share pays `1 - settle_fraction`. Null while live. Binary outcomes resolve to 0 or 1; bounded-options markets can carry fractional values. */
+                                settle_fraction: number | null;
+                                /** @description HL-native leg identifier `#<outcome_id*10 + side_index>` (e.g. `#3570`). */
+                                coin: string;
+                                /** @description 0 = first sideSpec, 1 = second sideSpec. */
+                                side_index: number;
+                                /** @description Side display label resolved from `outcomeMeta.sideSpecs[side_index]` (e.g. `Yes`, `Argentina`). */
+                                side_label: string;
+                            };
+                        }[];
+                        statistics: {
+                            elapsed?: number;
+                            rows_read?: number;
+                            bytes_read?: number;
+                        };
+                        pagination: {
+                            previous_page: number;
+                            current_page: number;
+                        };
+                        results: number;
+                        /** @description ISO 8601 datetime string */
+                        request_time: string;
+                        duration_ms: number;
+                    };
+                };
+            };
+            /** @description Client side error */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Authentication failed */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Server side error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 500 | 502 | 504;
+                        /** @enum {string} */
+                        code: "bad_database_response" | "connection_refused" | "database_timeout" | "internal_server_error";
+                        message: string;
+                    };
+                };
+            };
+        };
+    };
+    getV1HyperliquidOutcomesTrades: {
+        parameters: {
+            query?: {
+                /** @description Outcome coin (`#<outcome_id*10 + side_index>`). Side index = 0 or 1. Bare digits accepted (auto-prefixed). Discover via `/v1/hyperliquid/outcomes`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                coin?: string | string[];
+                /** @description HIP-4 outcome id (UInt64). One outcome has two side coins, `#<id*10>` and `#<id*10+1>`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                outcome_id?: string | string[];
+                /** @description HIP-4 question id (UInt64). Groups multi-outcome questions (e.g. World Cup). Binary single-outcome markets have no question id.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                question_id?: string | string[];
+                /** @description Filter by address<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                user?: string | string[];
+                /** @description Restrict by outcome direction tag. `BUY`/`SELL` are taker matches; `SETTLEMENT` is the resolution payout; the four `*_OUTCOME`/`MERGE_QUESTION` tags are HIP-4 collateral reshapes. Omit for all seven.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                direction?: "BUY" | "SELL" | "SETTLEMENT" | "SPLIT_OUTCOME" | "MERGE_OUTCOME" | "MERGE_QUESTION" | "NEGATE_OUTCOME";
+                /** @description UNIX timestamp in seconds or date string (e.g. "2025-01-01T00:00:00Z", "2025-01-01", ...). */
+                start_time?: string;
+                /** @description UNIX timestamp in seconds or date string (e.g. "2025-01-01T00:00:00Z", "2025-01-01", ...). */
+                end_time?: string;
+                /** @description Number of items* returned in a single request.<br>*Plan restricted. */
+                limit?: number;
+                /** @description Page number to fetch.<br>Empty `data` array signifies end of results. */
+                page?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: {
+                            block_num: number;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
+                            timestamp: string;
+                            transaction_hash: string;
+                            transaction_id: number;
+                            event_index: number;
+                            user: string;
+                            /** @description `BID` = user bought this leg, `ASK` = user sold this leg. Composition events (`SPLIT_OUTCOME`/`MERGE_OUTCOME`/`MERGE_QUESTION`/`NEGATE_OUTCOME`) emit one row per leg involved; both legs of a SPLIT mint show as `BID`, both legs of a MERGE redeem show as `ASK`. */
+                            side: string;
+                            direction: string;
+                            price: number;
+                            size: number;
+                            notional: number;
+                            start_position: string;
+                            closed_pnl: number;
+                            fee: number;
+                            fee_token: string;
+                            order_id: number;
+                            client_order_id: string;
+                            twap_id: number;
+                            crossed: boolean;
+                            outcome: {
+                                outcome_id: number;
+                                /** @description Outcome leaf label. For multi-outcome questions this is the per-leg name (team, candidate, bucket). For binary single-outcome markets it is the full market title. */
+                                outcome_name: string;
+                                /** @description Parent question id; null for binary single-outcome markets. */
+                                question_id: number | null;
+                                /** @description Parent question display name; null when `question_id` is null. */
+                                question_name: string | null;
+                                /** @description `live` while trading, `settled` after resolution. */
+                                status: string;
+                                /** @description HIP-4 `settleFraction`: payout per Yes share at resolution, in [0, 1]. No share pays `1 - settle_fraction`. Null while live. Binary outcomes resolve to 0 or 1; bounded-options markets can carry fractional values. */
+                                settle_fraction: number | null;
+                                /** @description HL-native leg identifier `#<outcome_id*10 + side_index>` (e.g. `#3570`). */
+                                coin: string;
+                                /** @description 0 = first sideSpec, 1 = second sideSpec. */
+                                side_index: number;
+                                /** @description Side display label resolved from `outcomeMeta.sideSpecs[side_index]` (e.g. `Yes`, `Argentina`). */
+                                side_label: string;
+                            };
+                        }[];
+                        statistics: {
+                            elapsed?: number;
+                            rows_read?: number;
+                            bytes_read?: number;
+                        };
+                        pagination: {
+                            previous_page: number;
+                            current_page: number;
+                        };
+                        results: number;
+                        /** @description ISO 8601 datetime string */
+                        request_time: string;
+                        duration_ms: number;
+                    };
+                };
+            };
+            /** @description Client side error */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Authentication failed */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Server side error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 500 | 502 | 504;
+                        /** @enum {string} */
+                        code: "bad_database_response" | "connection_refused" | "database_timeout" | "internal_server_error";
+                        message: string;
+                    };
+                };
+            };
+        };
+    };
+    getV1HyperliquidOutcomesUsers: {
+        parameters: {
+            query?: {
+                /** @description Filter by address<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                user?: string | string[];
+                /** @description HIP-4 outcome id (UInt64). One outcome has two side coins, `#<id*10>` and `#<id*10+1>`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                outcome_id?: string | string[];
+                /** @description HIP-4 question id (UInt64). Groups multi-outcome questions (e.g. World Cup). Binary single-outcome markets have no question id.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                question_id?: string | string[];
+                /** @description Lookback window for user statistics (1 hour, 1 day, 1 week, 30 days). Omit for all-time. */
+                interval?: "1h" | "1d" | "1w" | "30d";
+                sort_by?: "total_volume" | "transactions" | "realized_pnl";
+                /** @description Number of items* returned in a single request.<br>*Plan restricted. */
+                limit?: number;
+                /** @description Page number to fetch.<br>Empty `data` array signifies end of results. */
+                page?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: {
+                            user: string;
+                            transactions: number;
+                            buys: number;
+                            sells: number;
+                            volume_bought: number;
+                            volume_sold: number;
+                            total_volume: number;
+                            realized_pnl: number;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
+                            first_trade: string;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
+                            last_trade: string;
+                            outcome: {
+                                outcome_id: number;
+                                /** @description Outcome leaf label. For multi-outcome questions this is the per-leg name (team, candidate, bucket). For binary single-outcome markets it is the full market title. */
+                                outcome_name: string;
+                                /** @description Parent question id; null for binary single-outcome markets. */
+                                question_id: number | null;
+                                /** @description Parent question display name; null when `question_id` is null. */
+                                question_name: string | null;
+                                /** @description `live` while trading, `settled` after resolution. */
+                                status: string;
+                                /** @description HIP-4 `settleFraction`: payout per Yes share at resolution, in [0, 1]. No share pays `1 - settle_fraction`. Null while live. Binary outcomes resolve to 0 or 1; bounded-options markets can carry fractional values. */
+                                settle_fraction: number | null;
+                            };
+                        }[];
+                        statistics: {
+                            elapsed?: number;
+                            rows_read?: number;
+                            bytes_read?: number;
+                        };
+                        pagination: {
+                            previous_page: number;
+                            current_page: number;
+                        };
+                        results: number;
+                        /** @description ISO 8601 datetime string */
+                        request_time: string;
+                        duration_ms: number;
+                    };
+                };
+            };
+            /** @description Client side error */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Authentication failed */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Server side error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 500 | 502 | 504;
+                        /** @enum {string} */
+                        code: "bad_database_response" | "connection_refused" | "database_timeout" | "internal_server_error";
+                        message: string;
+                    };
+                };
+            };
+        };
+    };
+    getV1HyperliquidOutcomesUsersActivity: {
+        parameters: {
+            query?: {
+                /** @description Filter by address<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                user?: string | string[];
+                /** @description Outcome coin (`#<outcome_id*10 + side_index>`). Side index = 0 or 1. Bare digits accepted (auto-prefixed). Discover via `/v1/hyperliquid/outcomes`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                coin?: string | string[];
+                /** @description HIP-4 outcome id (UInt64). One outcome has two side coins, `#<id*10>` and `#<id*10+1>`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                outcome_id?: string | string[];
+                /** @description HIP-4 question id (UInt64). Groups multi-outcome questions (e.g. World Cup). Binary single-outcome markets have no question id.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                question_id?: string | string[];
+                /** @description Composition events only. `SETTLEMENT` is the resolution payout; the four `*_OUTCOME`/`MERGE_QUESTION` tags are HIP-4 collateral reshapes. BUY/SELL not accepted — for taker fills query `/outcomes/trades`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                direction?: "SETTLEMENT" | "SPLIT_OUTCOME" | "MERGE_OUTCOME" | "MERGE_QUESTION" | "NEGATE_OUTCOME";
+                /** @description UNIX timestamp in seconds or date string (e.g. "2025-01-01T00:00:00Z", "2025-01-01", ...). */
+                start_time?: string;
+                /** @description UNIX timestamp in seconds or date string (e.g. "2025-01-01T00:00:00Z", "2025-01-01", ...). */
+                end_time?: string;
+                /** @description Number of items* returned in a single request.<br>*Plan restricted. */
+                limit?: number;
+                /** @description Page number to fetch.<br>Empty `data` array signifies end of results. */
+                page?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: {
+                            block_num: number;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
+                            timestamp: string;
+                            transaction_hash: string;
+                            event_index: number;
+                            user: string;
+                            /** @description `BID` = leg received shares, `ASK` = leg released shares. Composition events emit one row per leg they touch. */
+                            side: string;
+                            direction: string;
+                            size: number;
+                            /** @description Realized USDC delta on this leg-event row. */
+                            closed_pnl: number;
+                            outcome: {
+                                outcome_id: number;
+                                /** @description Outcome leaf label. For multi-outcome questions this is the per-leg name (team, candidate, bucket). For binary single-outcome markets it is the full market title. */
+                                outcome_name: string;
+                                /** @description Parent question id; null for binary single-outcome markets. */
+                                question_id: number | null;
+                                /** @description Parent question display name; null when `question_id` is null. */
+                                question_name: string | null;
+                                /** @description `live` while trading, `settled` after resolution. */
+                                status: string;
+                                /** @description HIP-4 `settleFraction`: payout per Yes share at resolution, in [0, 1]. No share pays `1 - settle_fraction`. Null while live. Binary outcomes resolve to 0 or 1; bounded-options markets can carry fractional values. */
+                                settle_fraction: number | null;
+                                /** @description HL-native leg identifier `#<outcome_id*10 + side_index>` (e.g. `#3570`). */
+                                coin: string;
+                                /** @description 0 = first sideSpec, 1 = second sideSpec. */
+                                side_index: number;
+                                /** @description Side display label resolved from `outcomeMeta.sideSpecs[side_index]` (e.g. `Yes`, `Argentina`). */
+                                side_label: string;
+                            };
+                        }[];
+                        statistics: {
+                            elapsed?: number;
+                            rows_read?: number;
+                            bytes_read?: number;
+                        };
+                        pagination: {
+                            previous_page: number;
+                            current_page: number;
+                        };
+                        results: number;
+                        /** @description ISO 8601 datetime string */
+                        request_time: string;
+                        duration_ms: number;
+                    };
+                };
+            };
+            /** @description Client side error */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Authentication failed */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 400 | 401 | 403 | 404 | 405;
+                        /** @enum {string} */
+                        code: "authentication_failed" | "bad_header" | "missing_required_header" | "bad_query_input" | "forbidden" | "method_not_allowed" | "route_not_found" | "unauthorized" | "not_found_data";
+                        message: string;
+                    };
+                };
+            };
+            /** @description Server side error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        status: 500 | 502 | 504;
+                        /** @enum {string} */
+                        code: "bad_database_response" | "connection_refused" | "database_timeout" | "internal_server_error";
+                        message: string;
+                    };
+                };
+            };
+        };
+    };
+    getV1HyperliquidOutcomesUsersPositions: {
+        parameters: {
+            query?: {
+                /** @description Filter by address<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                user?: string | string[];
+                /** @description Outcome coin (`#<outcome_id*10 + side_index>`). Side index = 0 or 1. Bare digits accepted (auto-prefixed). Discover via `/v1/hyperliquid/outcomes`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                coin?: string | string[];
+                /** @description HIP-4 outcome id (UInt64). One outcome has two side coins, `#<id*10>` and `#<id*10+1>`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                outcome_id?: string | string[];
+                /** @description HIP-4 question id (UInt64). Groups multi-outcome questions (e.g. World Cup). Binary single-outcome markets have no question id.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                question_id?: string | string[];
+                /** @description Number of items* returned in a single request.<br>*Plan restricted. */
+                limit?: number;
+                /** @description Page number to fetch.<br>Empty `data` array signifies end of results. */
+                page?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: {
+                            user: string;
+                            /** @description Net shares currently held on this leg. */
+                            share_balance: number;
+                            /**
+                             * @description Timestamp of the most recent fill that touched this leg.
+                             * @example 2026-06-16 03:40:59
+                             */
+                            last_fill_time: string;
+                            last_block_num: number;
+                            outcome: {
+                                outcome_id: number;
+                                /** @description Outcome leaf label. For multi-outcome questions this is the per-leg name (team, candidate, bucket). For binary single-outcome markets it is the full market title. */
+                                outcome_name: string;
+                                /** @description Parent question id; null for binary single-outcome markets. */
+                                question_id: number | null;
+                                /** @description Parent question display name; null when `question_id` is null. */
+                                question_name: string | null;
+                                /** @description `live` while trading, `settled` after resolution. */
+                                status: string;
+                                /** @description HIP-4 `settleFraction`: payout per Yes share at resolution, in [0, 1]. No share pays `1 - settle_fraction`. Null while live. Binary outcomes resolve to 0 or 1; bounded-options markets can carry fractional values. */
+                                settle_fraction: number | null;
+                                /** @description HL-native leg identifier `#<outcome_id*10 + side_index>` (e.g. `#3570`). */
+                                coin: string;
+                                /** @description 0 = first sideSpec, 1 = second sideSpec. */
+                                side_index: number;
+                                /** @description Side display label resolved from `outcomeMeta.sideSpecs[side_index]` (e.g. `Yes`, `Argentina`). */
+                                side_label: string;
+                            };
                         }[];
                         statistics: {
                             elapsed?: number;
@@ -8812,10 +10091,10 @@ export interface operations {
                 /** @description Lookback window for user statistics (1 hour, 1 day, 1 week, 30 days). Omit for all-time. */
                 interval?: "1h" | "1d" | "1w" | "30d";
                 sort_by?: "total_volume" | "transactions" | "total_fees" | "realized_pnl" | "total_funding" | "liquidation_fills";
-                /** @description Hyperliquid coin identifier. Core perps have no prefix (`BTC`, `HYPE`); spot pairs use `@N` (`@107`); builder DEXs prefix the symbol with the DEX name (`xyz:SILVER`).<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                /** @description Hyperliquid coin id. Perps: `BTC`. Spot: `@N` (`@107`). Builder DEXs: `xyz:SILVER`. Outcome coins (`#N`) are rejected — use `/v1/hyperliquid/outcomes/*`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
                 coin?: string | string[];
-                /** @description DEX identifier. `perps` for core perps, `spot` for `@N` spot pairs, or a builder DEX name (`xyz`, `cash`, …). Call `/v1/hyperliquid/dexes` for the live set.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
-                dex?: string | string[];
+                /** @description DEX identifier. `perps` for core perps, `spot` for `@N` spot pairs, or a builder DEX name (`xyz`, `cash`, …). Outcome markets are served separately under `/v1/hyperliquid/outcomes/*`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                dex?: "perps" | "spot" | "xyz" | "cash" | "km" | "hyna" | "flx" | "vntl" | "para";
                 /** @description Number of items* returned in a single request.<br>*Plan restricted. */
                 limit?: number;
                 /** @description Page number to fetch.<br>Empty `data` array signifies end of results. */
@@ -8850,7 +10129,15 @@ export interface operations {
                             total_funding: number;
                             liquidation_fills: number;
                             coins_traded: number;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             first_trade: string;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             last_trade: string;
                         }[];
                         statistics: {
@@ -8946,10 +10233,10 @@ export interface operations {
             query: {
                 /** @description Filter by address<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
                 user: string | string[];
-                /** @description Hyperliquid coin identifier. Core perps have no prefix (`BTC`, `HYPE`); spot pairs use `@N` (`@107`); builder DEXs prefix the symbol with the DEX name (`xyz:SILVER`).<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                /** @description Hyperliquid coin id. Perps: `BTC`. Spot: `@N` (`@107`). Builder DEXs: `xyz:SILVER`. Outcome coins (`#N`) are rejected — use `/v1/hyperliquid/outcomes/*`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
                 coin?: string | string[];
-                /** @description DEX identifier. `perps` for core perps, `spot` for `@N` spot pairs, or a builder DEX name (`xyz`, `cash`, …). Call `/v1/hyperliquid/dexes` for the live set.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
-                dex?: string | string[];
+                /** @description DEX identifier. `perps` for core perps, `spot` for `@N` spot pairs, or a builder DEX name (`xyz`, `cash`, …). Outcome markets are served separately under `/v1/hyperliquid/outcomes/*`.<br>Single value or array of values* (separate multiple values with `,`)<br>*Plan restricted. */
+                dex?: "perps" | "spot" | "xyz" | "cash" | "km" | "hyna" | "flx" | "vntl" | "para";
                 /** @description Number of items* returned in a single request.<br>*Plan restricted. */
                 limit?: number;
                 /** @description Page number to fetch.<br>Empty `data` array signifies end of results. */
@@ -8975,6 +10262,10 @@ export interface operations {
                             dex: string;
                             position_size: number;
                             funding_rate: number;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             last_update: string;
                         }[];
                         statistics: {
@@ -9096,6 +10387,10 @@ export interface operations {
                     "application/json": {
                         data: {
                             block_num: number;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             timestamp: string;
                             transaction_hash: string;
                             event_index: number;
@@ -9362,6 +10657,10 @@ export interface operations {
                             withdrawals: number;
                             withdrawal_count: number;
                             distributions_received: number;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             last_activity_at: string;
                         }[];
                         statistics: {
@@ -9480,14 +10779,16 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             timestamp: string;
                             interval_min: number;
                             volume: number;
                             buy_volume: number;
                             sell_volume: number;
                             transactions: number;
-                            buys: number;
-                            sells: number;
                             active_coins: number;
                             total_fees: number;
                             liquidations_volume: number;
@@ -9749,6 +11050,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             timestamp: string;
                             open: number;
                             high: number;
@@ -9892,6 +11197,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             timestamp: string;
                             net_open_interest: number;
                             split_amount: number;
@@ -10028,6 +11337,10 @@ export interface operations {
                     "application/json": {
                         data: {
                             event_type: string;
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             timestamp: string;
                             block_num: number;
                             tx_hash: string;
@@ -10296,6 +11609,10 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
+                            /**
+                             * @description Datetime. Returned in SQL form (`YYYY-MM-DD HH:MM:SS`) on ClickHouse-backed responses, in the server timezone (UTC). See `pattern` for accepted input formats.
+                             * @example 2026-06-16 03:40:59
+                             */
                             timestamp: string;
                             volume: number;
                             buy_volume: number;

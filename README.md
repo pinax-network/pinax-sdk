@@ -17,7 +17,7 @@ The `@pinax/api` provides a type-safe TypeScript client for the [Pinax API](http
 - **Liquidity Pools** - DEX pool information
 - **NFTs** - Collections, holders, items, sales, transfers
 - **Polymarket** - Markets, activity, positions, users
-- **Hyperliquid** - Markets, users, vaults, liquidations
+- **Hyperliquid** - Markets, users, vaults, liquidations, HIP-4 outcomes
 
 ### Supported Networks
 

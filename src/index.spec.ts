@@ -222,6 +222,12 @@ describe('PinaxAPI', () => {
       expect(typeof client.hyperliquid.getVaults).toBe('function');
       expect(typeof client.hyperliquid.getVaultDepositors).toBe('function');
       expect(typeof client.hyperliquid.getPlatform).toBe('function');
+      expect(typeof client.hyperliquid.getOutcomes).toBe('function');
+      expect(typeof client.hyperliquid.getOutcomeOHLC).toBe('function');
+      expect(typeof client.hyperliquid.getOutcomeTrades).toBe('function');
+      expect(typeof client.hyperliquid.getOutcomeUsers).toBe('function');
+      expect(typeof client.hyperliquid.getOutcomeUserActivity).toBe('function');
+      expect(typeof client.hyperliquid.getOutcomeUserPositions).toBe('function');
     });
   });
 });
@@ -1298,6 +1304,78 @@ describe('API methods with mocked fetch', () => {
     expect(capturedRequest).not.toBeNull();
     expect(capturedRequest!.url).toContain('/v1/hyperliquid/platform');
     expect(capturedRequest!.url).toContain('interval=1d');
+  });
+
+  it('should call the correct endpoint for Hyperliquid outcomes', async () => {
+    const client = new PinaxAPI({ apiToken: 'test-token' });
+
+    await client.hyperliquid.getOutcomes({
+      outcome_id: '173',
+    });
+
+    expect(capturedRequest).not.toBeNull();
+    expect(capturedRequest!.url).toContain('/v1/hyperliquid/outcomes');
+    expect(capturedRequest!.url).toContain('outcome_id=173');
+  });
+
+  it('should call the correct endpoint for Hyperliquid outcome OHLC', async () => {
+    const client = new PinaxAPI({ apiToken: 'test-token' });
+
+    await client.hyperliquid.getOutcomeOHLC({
+      outcome_id: '173',
+    });
+
+    expect(capturedRequest).not.toBeNull();
+    expect(capturedRequest!.url).toContain('/v1/hyperliquid/outcomes/ohlc');
+    expect(capturedRequest!.url).toContain('outcome_id=173');
+  });
+
+  it('should call the correct endpoint for Hyperliquid outcome trades', async () => {
+    const client = new PinaxAPI({ apiToken: 'test-token' });
+
+    await client.hyperliquid.getOutcomeTrades({
+      outcome_id: '173',
+    });
+
+    expect(capturedRequest).not.toBeNull();
+    expect(capturedRequest!.url).toContain('/v1/hyperliquid/outcomes/trades');
+    expect(capturedRequest!.url).toContain('outcome_id=173');
+  });
+
+  it('should call the correct endpoint for Hyperliquid outcome users', async () => {
+    const client = new PinaxAPI({ apiToken: 'test-token' });
+
+    await client.hyperliquid.getOutcomeUsers({
+      user: '0xuser',
+    });
+
+    expect(capturedRequest).not.toBeNull();
+    expect(capturedRequest!.url).toContain('/v1/hyperliquid/outcomes/users');
+    expect(capturedRequest!.url).toContain('user=0xuser');
+  });
+
+  it('should call the correct endpoint for Hyperliquid outcome user activity', async () => {
+    const client = new PinaxAPI({ apiToken: 'test-token' });
+
+    await client.hyperliquid.getOutcomeUserActivity({
+      user: '0xuser',
+    });
+
+    expect(capturedRequest).not.toBeNull();
+    expect(capturedRequest!.url).toContain('/v1/hyperliquid/outcomes/users/activity');
+    expect(capturedRequest!.url).toContain('user=0xuser');
+  });
+
+  it('should call the correct endpoint for Hyperliquid outcome user positions', async () => {
+    const client = new PinaxAPI({ apiToken: 'test-token' });
+
+    await client.hyperliquid.getOutcomeUserPositions({
+      user: '0xuser',
+    });
+
+    expect(capturedRequest).not.toBeNull();
+    expect(capturedRequest!.url).toContain('/v1/hyperliquid/outcomes/users/positions');
+    expect(capturedRequest!.url).toContain('user=0xuser');
   });
 });
 
